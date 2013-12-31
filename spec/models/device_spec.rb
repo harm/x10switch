@@ -2,7 +2,7 @@ require 'spec_helper'
 
 ## 
 # heyu command output:
-# heyu show alias a
+# heyu show alias
 ##
 $HEYU_CONFIG = %Q{
 [Aliases]

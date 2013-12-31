@@ -6,47 +6,14 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "jquery.mobile-1.4.0", media: "all", "data-turbolinks-track" => true %>
-
-  <%= javascript_include_tag "jquery", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "jquery.mobile-1.4.0", "data-turbolinks-track" => true %>
-
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-
-  
 </head>
 <body>
 
 <div data-role="page" data-quicklinks="true">
-		<div data-role="tabs">
-			<div data-role="navbar">
-				<ul>
-			      <li><a href="#scenes" data-theme="a" data-ajax="false">Scenes</a></li>
-			      <li><a href="#manual"  data-theme="a" data-ajax="false">Manual</a></li>
-			    </ul>
-			</div>
-
-			<div id="scenes" class="ui-content">
-				<h1>Scenes</h1>
-				<ul data-role="listview">
-					<% @devices.each do |device| %>
-				    	<li><a href="#"><%= device.name %></a></li>
-				    <% end %>
-				</ul>
-			</div>
-			<div id="manual" class="ui-content">
-				<div data-role="fieldcontain">
-				<label for="select-choice-1" class="select">Choose shipping method:</label>
-				<select name="select-choice-1" id="select-choice-1">
-					<option value="standard">Standard: 7 day</option>
-					<option value="rush">Rush: 3 days</option>
-					<option value="express">Express: next day</option>
-					<option value="overnight">Overnight</option>
-				</select>
-				</div>
-			</div>
-		</div>
+		
+		<%= yield %>
 
 		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
 			<p>XBoks <span class="jqm-version"></span></p>

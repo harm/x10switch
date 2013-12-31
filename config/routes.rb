@@ -7,6 +7,10 @@ Switch::Application.routes.draw do
 
   root 'home#index'
 
+  post 'scene/:id' => 'home#scene'
+  post 'dim_bright' => 'home#dim_bright'
+  post 'on_off' => 'home#on_off'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

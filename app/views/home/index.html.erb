@@ -1,1 +1,77 @@
-hello
+<div data-role="tabs">
+	<div data-role="navbar">
+		<ul>
+	      <li><a href="#scenes" data-theme="a" data-ajax="false">Scenes</a></li>
+	      <li><a href="#devices"  data-theme="a" data-ajax="false">Manual</a></li>
+	    </ul>
+	</div>
+
+	<div id="scenes" class="ui-content">
+		<h1>Scenes</h1>
+		<ul data-role="listview">
+			<% @scenes.each do |scene| %>
+		    	<li data-role="button"><a href="#"><%= scene.name %></a></li>
+		    <% end %>
+		</ul>
+	</div>
+
+	<div id="devices" class="ui-content">
+		<div data-role="fieldcontain">
+			<ul data-role="listview">
+			<li>	
+				<label for="select-choice-1" class="select">Choose a device:</label>
+				<select name="select-choice-1" id="select-choice-1">
+					<% @devices.each do |device| %>
+						<option value="<%= device.address %>"><%= device.name %> (<%= device.address %>)</option>
+					<% end %>
+				</select>
+			</li>
+			<li>
+				<label for="slider-1">Dim/Bright value:</label>
+    		<input type="range" name="slider-1" id="slider-1" min="0" max="22" value="0">
+    	</li>
+    </ul>
+    <ul>
+    	<input type="button" data-inline="true" value="dim" id="dim_button">
+    	<input type="button" data-inline="true" value="bright" id="bright_button">
+    	<input type="button" data-inline="true" value="on" id="on_button">
+    	<input type="button" data-inline="true" value="off" id="off_button">
+    </ul>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	$("#on_button,#off_button").on('click', function(data){
+		device_value = $("#select-choice-1").val();
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/on_off/",
+			data: { id: device_value, on_off: $(this).val() }
+		});
+	});
+
+	$("#bright_button,#dim_button").on('click', function(data) {
+		bright_value = $("#slider-1").val();
+		device_value = $("#select-choice-1").val();
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/dim_bright/" + $(this).text(),
+			data: { id: device_value, bright_value: bright_value, dim_bright: $(this).val() }
+		});
+	});
+
+
+	$('#scenes').on('click', 'li', function(data) {
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/scene/" + $(this).text()
+		});
+  });
+
+</script>
