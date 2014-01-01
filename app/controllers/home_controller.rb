@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 
 	def dim_bright
 		puts "*** received dim/bright command ***"
-		Heyu.dim_bright(params[:id], params[:dim_value], params[:dim_bright])
+		Heyu.dim_bright(params[:id], params[:value], params[:dim_bright])
 		head 200, :content_type => 'text/html'
 	end
 

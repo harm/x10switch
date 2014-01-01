@@ -61,7 +61,7 @@
 			type: "POST",
 			dataType: "json",
 			url: "/dim_bright/" + $(this).text(),
-			data: { id: device_value, bright_value: bright_value, dim_bright: $(this).val() }
+			data: { id: device_value, value: bright_value, dim_bright: $(this).val() }
 		});
 	});
 
