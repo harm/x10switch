@@ -15,7 +15,7 @@ class Heyu
     #   }
     # stub
 
-    devices = %x{ /usr/local/bin/heyu alias }
+    devices = %x{ /usr/local/bin/heyu show alias }
     devices
 	end
 
@@ -27,7 +27,7 @@ class Heyu
     #   scene  tv_on    on tv_set; dimb living_room 10
     # }
     # stub
-    scenes = %x{ /usr/local/bin/heyu scenes }
+    scenes = %x{ /usr/local/bin/heyu show scenes }
     scenes
 
   end
