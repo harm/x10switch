@@ -1,7 +1,7 @@
 <div data-role="tabs">
 	<div data-role="navbar">
 		<ul>
-	      <li><a href="#scenes" data-theme="a" data-ajax="false">Scenes</a></li>
+	      <li id="scenes_tab"><a href="#scenes" data-theme="a" data-ajax="false" id="tab1">Scenes</a></li>
 	      <li><a href="#devices"  data-theme="a" data-ajax="false">Manual</a></li>
 	    </ul>
 	</div>
@@ -73,5 +73,7 @@
 			url: "/scene/" + $(this).text()
 		});
   });
+
+  $("tab1").addClass('ui-btn-active');
 
 </script>
