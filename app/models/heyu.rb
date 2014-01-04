@@ -34,7 +34,7 @@ class Heyu
 
   def self.scene_command(scene_id)
     puts "*** Heyu executing: heyu turn #{scene_id} ***"
-    %x{ /usr/local/bin/heyu on #{scene_id} }
+    %x{ /usr/local/bin/heyu #{scene_id} }
   end
 
   def self.dim_bright(id, dim_value, dim_bright)
