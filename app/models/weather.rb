@@ -1,8 +1,4 @@
 require 'net/http'
-require 'rubygems'
-require 'json'
-require 'pp'
-require_relative 'settings'
 
 class Weather
 	def self.get_data
