@@ -15,7 +15,7 @@ role :db,  %w{pi@192.168.0.33}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-#server '192.168.0.33', user: 'pi', roles: %w{web app}, my_property: :my_value
+server '192.168.0.33', user: 'pi', roles: %w{web app}, my_property: :my_value
 
 
 # Custom SSH Options
