@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'whenever', :require => false
 
+gem 'rufus-scheduler'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -42,7 +44,8 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+gem 'capistrano', '~> 3.2.0'
+gem 'capistrano-rvm'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
