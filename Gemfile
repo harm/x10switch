@@ -30,7 +30,9 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'whenever', :require => false
 
-gem 'rufus-scheduler'
+gem 'daemons'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -46,6 +48,8 @@ end
 # Use Capistrano for deployment
 gem 'capistrano', '~> 3.2.0'
 gem 'capistrano-rvm'
+gem 'capistrano-rails'
+
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

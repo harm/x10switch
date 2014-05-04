@@ -47,4 +47,19 @@ class Heyu
     %x{ /usr/local/bin/heyu #{on_or_off} #{id} }
   end
 
+
+  def self.schedule_switch_lights
+    weather = JSON.parse(IO.read('weather.json'))
+    sunrise = Time.at(weather['sys']['sunrise'].to_i).to_datetime
+    sunrise = sunrise - 1.hours
+    sunset  = Time.at(weather['sys']['sunset'].to_i).to_datetime
+    sunset = sunset + 1.hours
+
+    Delayed::Worker.logger.debug("Heyu off B9 at: #{sunset}")
+    Heyu.delay(:run_at => sunrise).on_off('B9', 'off')
+
+    Delayed::Worker.logger.debug("Heyu on B9 at: #{sunset}")
+    Heyu.delay(:run_at => sunset).on_off('B9', 'on')
+  end
+
 end
