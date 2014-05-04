@@ -8,7 +8,7 @@ set :repo_url, 'https://github.com/harm/x10switch.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/pi/x10switch'
+set :deploy_to, '/home/harm/x10switch'
 
 # Default value for :scm is :git
 # set :scm, :git
