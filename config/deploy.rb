@@ -36,6 +36,13 @@ set :log_level, :debug
 
 namespace :deploy do
 
+  task :copy_configs, roles: :app, except: { no_release: true } do
+    run "mkdir -p #{shared_path}/config"
+    top.upload("#{Dir.pwd}/.env", "#{shared_path}/config/.env", via: :scp)
+  end
+
+
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -55,5 +62,8 @@ namespace :deploy do
       # end
     end
   end
+
+  after 'deploy:setup', 'deploy:copy'
+
 
 end

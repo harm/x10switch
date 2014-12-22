@@ -1,3 +1,6 @@
+require 'dotenv'
+Dotenv.load
+
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary server in each group
