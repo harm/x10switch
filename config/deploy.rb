@@ -19,6 +19,8 @@ set :deploy_to, '/home/harm/x10switch'
 # Default value for :log_level is :debug
 set :log_level, :debug
 
+set :linked_files, %w{config/database.yml .env}
+
 # Default value for :pty is false
 # set :pty, true
 
@@ -35,11 +37,6 @@ set :log_level, :debug
 # set :keep_releases, 5
 
 namespace :deploy do
-
-  task :copy_configs, roles: :app, except: { no_release: true } do
-    run "mkdir -p #{shared_path}/config"
-    top.upload("#{Dir.pwd}/.env", "#{shared_path}/config/.env", via: :scp)
-  end
 
 
 
@@ -63,7 +60,6 @@ namespace :deploy do
     end
   end
 
-  after 'deploy:setup', 'deploy:copy'
 
 
 end
