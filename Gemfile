@@ -34,6 +34,10 @@ gem 'daemons'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 
+gem 'dotenv'
+gem 'dotenv-deployment', require: 'dotenv/deployment'
+
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
