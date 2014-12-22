@@ -19,7 +19,7 @@ set :deploy_to, '/home/harm/x10switch'
 # Default value for :log_level is :debug
 set :log_level, :debug
 
-set :linked_files, %w{config/database.yml .env}
+set :linked_files, %w{.env}
 
 # Default value for :pty is false
 # set :pty, true
