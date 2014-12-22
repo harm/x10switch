@@ -14,7 +14,7 @@
 		<h1>Scenes (<%= @scenes.size %>)</h1>
 		<ul data-role="listview">
 			<% @scenes.each do |scene| %>
-		    	<li data-role="button"><a href="#">
+		    	<li data-role="button"><a href="/scene">
 		    		<%= scene.name %></a>
 		    	</li>
 		    <% end %>
