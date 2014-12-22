@@ -52,3 +52,4 @@ production:
   database: x10switch_production
   username: x10switch
   password: <%= ENV['X10SWITCH_DATABASE_PASSWORD'] %>
+  socket: /var/run/mysqld/mysqld.sock
